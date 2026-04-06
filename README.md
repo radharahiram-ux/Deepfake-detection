@@ -1,104 +1,268 @@
-# Deepfake detection using Deep Learning (ResNext and LSTM)
+<div align="center">
 
-## Give a Star⭐ to repo and Don't forget to <a href="https://www.buymeacoffee.com/abhijitjadhav" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 35px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a> 
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=00BFFF&center=true&vCenter=true&width=700&lines=Deepfake+Detection+using+Deep+Learning;ResNext+%2B+LSTM+%7C+93%25+Accuracy;Transfer+Learning+%7C+Django+%7C+Docker" alt="Typing SVG" />
 
-</a>
+<br/>
 
-## Latest Update
-#### We have dockerised the [Django Application](https://github.com/abhijitjadhav1998/Deepfake_detection_using_deep_learning/tree/master/Django%20Application) now you can spin up a container within seconds without worring about dependencies
+[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org)
+[![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)](https://djangoproject.com)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue?style=for-the-badge)](https://www.gnu.org/licenses/gpl-3.0)
 
+[![Stars](https://img.shields.io/github/stars/abhijitjadhav1998/Deepfake_detection_using_deep_learning?style=social)](https://github.com/abhijitjadhav1998/Deepfake_detection_using_deep_learning/stargazers)
+[![Forks](https://img.shields.io/github/forks/abhijitjadhav1998/Deepfake_detection_using_deep_learning?style=social)](https://github.com/abhijitjadhav1998/Deepfake_detection_using_deep_learning/network/members)
+[![Issues](https://img.shields.io/github/issues/abhijitjadhav1998/Deepfake_detection_using_deep_learning?style=social)](https://github.com/abhijitjadhav1998/Deepfake_detection_using_deep_learning/issues)
 
-## 1. Introduction
-This projects aims in detection of video deepfakes using deep learning techniques like ResNext and LSTM. We have achived deepfake detection by using transfer learning where the pretrained ResNext CNN is used to obtain a feature vector, further the LSTM layer is trained using the features. For more details follow the [documentaion](https://github.com/abhijitjadhav1998/Deepfake_detection_using_deep_learning/tree/master/Documentation).
+</div>
 
-You can also watch [this Youtube video](https://www.youtube.com/watch?v=_q16aJTXVRE) to get a better intuition about the project.
-You can watch [this playList](https://www.youtube.com/watch?v=quJ8Rv84oA0&list=PLNIj0dkfMA1FsD5xR4IEc8vdwr66_WExl) for step by step installation.
+---
 
-You can read more about the project on <a href="https://abhijithjadhav.medium.com/deepfake-video-detection-using-long-short-term-memory-df3674f83ecc" target="_blank"><img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" alt="Medium" /></a>&nbsp;
+## 🚀 Latest Update
 
+> **Docker support is live!**
+> The [Django Application](https://github.com/abhijitjadhav1998/Deepfake_detection_using_deep_learning/tree/master/Django%20Application) is now fully Dockerised — spin up the entire stack in seconds with zero dependency headaches.
 
-## 2. Directory Structure
-For ease of understanding the project is structured in below format
+```bash
+docker-compose up --build
 ```
-Deepfake_detection_using_deep_learning
-    |
-    |--- Django Application
-    |--- Model Creation
-    |--- Documentaion
+
+---
+
+## 📋 Table of Contents
+
+<details open>
+<summary><b>Click to expand / collapse</b></summary>
+
+- [Introduction](#-introduction)
+- [Directory Structure](#-directory-structure)
+- [System Architecture](#-system-architecture)
+- [Demo](#-demo)
+- [Results](#-results)
+- [Roadmap & Contributions](#-roadmap--open-source-contributions)
+- [License](#-license)
+
+</details>
+
+---
+
+## 🧠 Introduction
+
+This project detects **video deepfakes** using a hybrid deep learning pipeline combining **ResNext CNN** and **LSTM**:
+
+| Step | Component | Role |
+|------|-----------|------|
+| 1 | **ResNext CNN** (pretrained) | Extracts rich spatial feature vectors per frame |
+| 2 | **LSTM** | Learns temporal patterns across frame sequences |
+| 3 | **Classifier** | Outputs Real / Fake prediction with confidence |
+
+> Transfer learning on ResNext enables strong generalisation even with limited training data. The LSTM captures temporal inconsistencies that single-frame models miss.
+
+<details>
+<summary><b>📚 Read more & resources</b></summary>
+
+<br/>
+
+- 📄 [Full Documentation](https://github.com/abhijitjadhav1998/Deepfake_detection_using_deep_learning/tree/master/Documentation)
+- 🎥 [Project Walkthrough — YouTube](https://www.youtube.com/watch?v=_q16aJTXVRE)
+- 📺 [Step-by-step Installation Playlist](https://www.youtube.com/watch?v=quJ8Rv84oA0&list=PLNIj0dkfMA1FsD5xR4IEc8vdwr66_WExl)
+- ✍️ [Medium Article](https://abhijithjadhav.medium.com/deepfake-video-detection-using-long-short-term-memory-df3674f83ecc)
+
+</details>
+
+---
+
+## 📁 Directory Structure
+
 ```
-1. Django Application 
-   - This directory consists of the django made application of our work. Where a user can upload the video and submit it to the model for prediction. The trained model performs the prediction and the result is displayed on the screen.
-2. Model Creation
-   - This directory consists of the step by step process of creating and training a deepfake detection model using our approach.
-3. Documentation
-   - This directory consists of all the documentation done during the project
-   
-## 3. System Architecture
+Deepfake_detection_using_deep_learning/
+│
+├── 🌐 Django Application/     ← Web app for video upload & live prediction
+│
+├── 🔬 Model Creation/         ← Training pipeline, notebooks & scripts
+│
+└── 📄 Documentation/          ← Architecture docs, reports & references
+```
+
+<details>
+<summary><b>What's inside each folder?</b></summary>
+
+<br/>
+
+**🌐 Django Application**
+A fully functional web application where users can upload a video file and get a real/fake prediction rendered on screen. Supports Docker deployment.
+
+**🔬 Model Creation**
+Step-by-step Jupyter notebooks and scripts covering data preprocessing, feature extraction with ResNext, LSTM training, and model evaluation.
+
+**📄 Documentation**
+All project documentation including system design, methodology, results analysis, and references.
+
+</details>
+
+---
+
+## 🏗️ System Architecture
+
 <p align="center">
-  <img src="https://github.com/abhijitjadhav1998/Deepfake_detection_using_deep_learning/blob/master/github_assets/System%20Architecture.png" />
+  <img src="https://github.com/abhijitjadhav1998/Deepfake_detection_using_deep_learning/blob/master/github_assets/System%20Architecture.png" alt="System Architecture" width="85%"/>
 </p>
 
-## 4. Demo 
-### You can watch the [youtube video](https://www.youtube.com/watch?v=_q16aJTXVRE&t=823s) for demo
+<details>
+<summary><b>Architecture breakdown</b></summary>
+
+<br/>
+
+```
+Input Video
+    │
+    ▼
+Frame Extraction (N frames sampled uniformly)
+    │
+    ▼
+ResNext-50 CNN  ──►  Feature Vector (per frame)
+    │
+    ▼
+LSTM Layer  ──►  Temporal sequence modelling
+    │
+    ▼
+Fully Connected + Softmax
+    │
+    ▼
+Output: REAL / FAKE + Confidence %
+```
+
+</details>
+
+---
+
+## 🎬 Demo
 
 <p align="center">
-  <img src="https://github.com/abhijitjadhav1998/Deepfake_detection_using_deep_learning/blob/master/github_assets/fakegif.gif" />
+  <img src="https://github.com/abhijitjadhav1998/Deepfake_detection_using_deep_learning/blob/master/github_assets/fakegif.gif" alt="Demo GIF" width="80%"/>
 </p>
 
-## 5. Our Results
+<div align="center">
 
-| Model Name | No of videos | No of Frames | Accuracy |
-|------------|--------------|--------------|----------|
-|model_84_acc_10_frames_final_data.pt |6000 |10 |84.21461|
-|model_87_acc_20_frames_final_data.pt | 6000 |20 |87.79160|
-|model_89_acc_40_frames_final_data.pt | 6000| 40 |89.34681|
-|model_90_acc_60_frames_final_data.pt | 6000| 60 |90.59097 |
-|model_91_acc_80_frames_final_data.pt | 6000 | 80 | 91.49818 |
-|model_93_acc_100_frames_final_data.pt| 6000 | 100 | 93.58794|
+▶️ **[Watch Full Demo on YouTube](https://www.youtube.com/watch?v=_q16aJTXVRE&t=823s)**
 
-## 6. Contributors
+</div>
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/abhijitjadhav1998/"><img src="https://avatars.githubusercontent.com/u/38549908?v=4?s=100" width="100px;" alt="Abhijit Jadhav"/><br /><sub><b>Abhijit Jadhav</b></sub></a><br /><a href="#projectManagement-abhijitjadhav1998" title="Project Management">📆</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="http://vthonte.vercel.app/"><img src="https://avatars.githubusercontent.com/u/43621438?v=4?s=100" width="100px;" alt="Vishwesh Thonte"/><br /><sub><b>Vishwesh Thonte</b></sub></a><br /><a href="#maintenance-vthonte" title="Maintenance">🚧</a></td>
-    </tr>
-  </tbody>
-</table>
+---
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
+## 📊 Results
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
+All models trained on **6,000 videos**. Accuracy increases with more frames — at the cost of compute.
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
+| Model | Frames | Accuracy | Performance |
+|-------|--------|----------|-------------|
+| `model_84_acc_10_frames_final_data.pt` | 10 | 84.21% | `████████░░` |
+| `model_87_acc_20_frames_final_data.pt` | 20 | 87.79% | `████████░░` |
+| `model_89_acc_40_frames_final_data.pt` | 40 | 89.35% | `█████████░` |
+| `model_90_acc_60_frames_final_data.pt` | 60 | 90.59% | `█████████░` |
+| `model_91_acc_80_frames_final_data.pt` | 80 | 91.50% | `█████████░` |
+| `model_93_acc_100_frames_final_data.pt` | 100 | **93.59%** | `█████████▉` |
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+> **Best model:** `model_93_acc_100_frames_final_data.pt` — **93.59% accuracy** at 100 frames.
 
-#### 6.1 Offline Contributors
-   1. Jay Patel
-   2. Hitendra Patil
-   3. Abhishek Patange
-   
-## 7. License
+<details>
+<summary><b>Choosing the right model for your use case</b></summary>
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+<br/>
 
-## 8. We welcome Open Source Contribution. 
-### Below are the some changes that can be applied to the project. New Ideas will be appreciated.
-- [ ] Deploying the applications in free cloud 
-- [ ] Creating open source API for detection
-- [ ] Batch processing of entire video instead of processing first 'x' frames.
-- [ ] Optimizing the code for faster execution.
-#### Completed 
-- [X] Dockerizing the app
-- [X] Enabling working of project on Non Cuda Computers. i.e on normal or AMD GPUs
+| Use Case | Recommended Model | Why |
+|----------|-------------------|-----|
+| Real-time / low latency | 10–20 frames | Fast inference |
+| Balanced performance | 40–60 frames | Good accuracy, moderate compute |
+| Maximum accuracy | 100 frames | Best results, higher GPU cost |
 
-## 9. Dont forget to Star⭐ this repo 😉 and  <a href="https://www.buymeacoffee.com/abhijitjadhav" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 35px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a> 
+</details>
+
+---
+
+## 🗺️ Roadmap & Open Source Contributions
+
+We welcome contributions! Here's the current roadmap:
+
+### ✅ Completed
+
+- [x] Dockerising the Django application
+- [x] Support for non-CUDA machines (CPU / AMD GPU)
+
+### 🔧 Open Issues — Help Wanted!
+
+- [ ] Deploy application to free cloud (e.g. Render, Railway, HuggingFace Spaces)
+- [ ] Create an open source REST API for deepfake detection
+- [ ] Batch-process entire videos instead of only the first `x` frames
+- [ ] Optimise inference pipeline for faster execution
+
+<details>
+<summary><b>How to contribute</b></summary>
+
+<br/>
+
+1. Fork this repository
+2. Create a feature branch: `git checkout -b feature/your-feature-name`
+3. Commit your changes: `git commit -m 'Add: your feature description'`
+4. Push to the branch: `git push origin feature/your-feature-name`
+5. Open a Pull Request
+
+New ideas are always appreciated — open an [Issue](https://github.com/abhijitjadhav1998/Deepfake_detection_using_deep_learning/issues) to discuss!
+
+</details>
+
+---
+
+## 🐳 Quick Start with Docker
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/abhijitjadhav1998/Deepfake_detection_using_deep_learning.git
+cd Deepfake_detection_using_deep_learning
+
+# 2. Navigate to Django Application
+cd "Django Application"
+
+# 3. Build and run with Docker
+docker-compose up --build
+
+# 4. Visit http://localhost:8000
+```
+
+<details>
+<summary><b>Manual setup (without Docker)</b></summary>
+
+<br/>
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run migrations
+python manage.py migrate
+
+# Start development server
+python manage.py runserver
+```
+
+See the [installation playlist](https://www.youtube.com/watch?v=quJ8Rv84oA0&list=PLNIj0dkfMA1FsD5xR4IEc8vdwr66_WExl) for a full walkthrough.
+
+</details>
+
+---
+
+## 📄 License
+
+This project is licensed under the **GNU General Public License v3.0**.
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/gpl-3.0)
+
+---
+
+<div align="center">
+
+### ⭐ If this project helped you, please star the repo — it really helps!
+
+[![Star History Chart](https://api.star-history.com/svg?repos=abhijitjadhav1998/Deepfake_detection_using_deep_learning&type=Date)](https://star-history.com/#abhijitjadhav1998/Deepfake_detection_using_deep_learning&Date)
+
+</div>
