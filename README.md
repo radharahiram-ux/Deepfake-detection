@@ -262,7 +262,3 @@ This project is licensed under the **GNU General Public License v3.0**.
 <div align="center">
 
 ### ⭐ If this project helped you, please star the repo — it really helps!
-
-[![Star History Chart](https://api.star-history.com/svg?repos=abhijitjadhav1998/Deepfake_detection_using_deep_learning&type=Date)](https://star-history.com/#abhijitjadhav1998/Deepfake_detection_using_deep_learning&Date)
-
-</div>
