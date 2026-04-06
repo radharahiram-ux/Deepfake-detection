@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block content%}
+<div class="bg">
+<div class="container">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-12 my-auto">
+            <div class="logo text-center mb-3"><img src="{% static 'images/logo1.png'%}" alt="Logo" ></div>
+            <div class="width-400">
+                <h4 class="text-center mb-3" style="color: #333;">Image Deepfake Detection</h4>
+                <div id="image-preview-container" style="display:none; text-align:center; margin-bottom:15px;">
+                    <img id="image-preview" src="" alt="Preview" style="max-width:100%; max-height:300px; border-radius:8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);" />
+                </div>
+                <form class="form" method="POST" enctype="multipart/form-data" name="image-upload" id="image-upload">
+                    {%csrf_token%}
+                    <div class="form-group">
+                        <label>{{form.upload_image_file.label}}</label>
+                        {{form.upload_image_file}}
+                        {%if form.upload_image_file.errors%}
+                        {%for each_error in form.upload_image_file.errors%}
+                        <div class="alert alert-danger mt-1">
+                            {{each_error}}
+                        </div>
+                        {%endfor%}
+                        {%endif%}
+                    </div>
+                    <button id="imageUpload" type="submit" name="submit" class="btn btn-success mt-3 btn-block">Upload & Detect</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{%endblock%}
+{%block js_cripts%}
+<script>
+    $(document).ready(function() {
+        $('input[type="file"]').change(function(e) {
+            var file = e.target.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    $('#image-preview').attr('src', event.target.result);
+                    $('#image-preview-container').show();
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+</script>
+{%endblock%}

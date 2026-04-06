@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block content%}
+<div class="container" style="padding-bottom: 60px;">
+  <div class="logo text-center mb-3"><img src="{% static 'images/logo1.png'%}" alt="Logo" ></div>
+  <hr />
+
+  {%if error%}
+  <div class="alert alert-danger">
+    {{error}}
+  </div>
+  {%endif%}
+
+  {%if original_image%}
+  <h3>Uploaded Image</h3>
+  <div class="text-center mb-4" style="padding:20px; box-shadow: 0 0px 9px 2px #ccc;">
+    <img src="{%static original_image%}" alt="Uploaded Image" style="max-width:100%; max-height:400px; border-radius:8px;" />
+  </div>
+  {%endif%}
+
+  {%if cropped_face_image%}
+  <h3>Detected Face</h3>
+  <div class="text-center mb-4" style="padding:20px; box-shadow: 0 0px 9px 2px #ccc;">
+    <img src="{%static cropped_face_image%}" alt="Cropped Face" style="max-width:100%; max-height:300px; border-radius:8px;" />
+  </div>
+  {%endif%}
+
+  {%if output%}
+  <div class="result text-center mt-4" style="padding:30px; box-shadow: 0 0px 12px 3px #ccc; border-radius:10px;">
+    <h3>Prediction Result</h3>
+    {%if output == "REAL" %}
+    <h2 style="margin-top:20px;">Result: <span style="color:green; font-weight:bold;">{{output}}</span></h2>
+    <img src="{% static 'images/thumpup.png'%}" alt="real" height="100px" width=auto style="margin-top:10px;">
+    {%else%}
+    <h2 style="margin-top:20px;">Result: <span style="color:red; font-weight:bold;">{{output}}</span></h2>
+    <img src="{% static 'images/thumpdown.png'%}" alt="fake" height="100px" width=auto style="margin-top:10px;">
+    {%endif%}
+    <h4 style="margin-top:15px;">Confidence: <strong>{{confidence}}%</strong></h4>
+  </div>
+  {%endif%}
+
+  <div class="text-center mt-4">
+    <a href="{%url 'ml_app:image_home'%}" class="btn btn-primary">Detect Another Image</a>
+    <a href="{%url 'ml_app:home'%}" class="btn btn-secondary ml-2">Video Detection</a>
+  </div>
+</div>
+{%endblock%}
